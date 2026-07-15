@@ -12,6 +12,7 @@
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     --font-main: "Georgia", "Times New Roman", serif;
     --font-secondary: "Helvetica Neue", Arial, sans-serif;
+    --nav-color: 
 }
 
 * {
@@ -22,20 +23,24 @@
 
 body {
     font-family: var(--font-main);
+    background-image: url('../fond.png');
     line-height: 1.7;
     color: var(--text-color);
-    background-color: var(--light-color);
+    background-color: #f7f3ea;
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 /* ===== En-tête ===== */
+
+
 header {
     text-align: justify;
     margin: 30px 0;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--border-color);
+    
 }
 
 header h1 {
@@ -49,6 +54,14 @@ header h1 {
 /* ===== Navigation ===== */
 nav {
     margin-top: 15px;
+    padding: 20px 10px; /* Légèrement réduit pour que la barre ne soit pas trop haute */
+    
+    /* ---- AJOUT DE L'IMAGE DE FOND ---- */
+    background-color: #8A9A5B;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 8px; /* Arrondit les coins de la barre de navigation */
 }
 
 nav ul {
@@ -61,8 +74,8 @@ nav ul {
 
 nav a {
     text-decoration: none;
-    color: var(--link-color);
-    font-family: var(--font-secondary);
+    color: white;
+    font-family: Times;
     font-weight: 500;
     font-size: 1.05em;
     padding: 5px 10px;
@@ -114,15 +127,18 @@ main {
 }
 
 .section-card {
-    background: white;
-    border: 1px solid var(--border-color);
+    background-image: url('../logo_carte.png');
     border-radius: 5px;
     padding: 25px;
     width: 45%;
     min-width: 300px;
-    box-shadow: var(--shadow);
     transition: transform 0.2s, box-shadow 0.2s;
+background-size: cover; /* 👈 Remplit tout l'espace disponible */
+    background-position: center; /* Centre l'image pour éviter les décalages */
+    background-repeat: no-repeat; /* Évite que l'image ne se répète */
 }
+
+
 
 .section-card:hover {
     transform: translateY(-5px);
@@ -159,6 +175,18 @@ main {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+}
+
+.card::before{
+
+    content:"";
+
+    width:80px;
+
+    height:15px;
+
+    background:#d9d6aa;
+
 }
 
 /* ===== Listes de cours/ressources ===== */
