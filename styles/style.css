@@ -12,7 +12,6 @@
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     --font-main: "Georgia", "Times New Roman", serif;
     --font-secondary: "Helvetica Neue", Arial, sans-serif;
-    --nav-color: 
 }
 
 * {
@@ -85,7 +84,7 @@ nav a {
 
 nav a:hover {
     color: white;
-    background-color: var(--link-color);
+    background-color: #9caf88;
 }
 
 /* ===== Contenu principal ===== */
