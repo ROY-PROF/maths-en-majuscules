@@ -10,7 +10,7 @@
     --link-hover: #2980b9;
     --border-color: #bdc3c7;
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    --font-main: "Cormorant Garamond", "Times New Roman", serif;
+    --font-main: "Georgia", "Times New Roman", serif;
     --font-secondary: "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -18,6 +18,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    /* Empêche tout débordement horizontal sur mobile */
+    overflow-x: hidden;
 }
 
 body {
@@ -29,18 +34,22 @@ body {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
-    background-attachment:fixed;
+    overflow-x: hidden;
+}
+
+/* Les images ne dépassent jamais de leur conteneur */
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* ===== En-tête ===== */
 
-
 header {
-    text-align: center;
+    text-align: justify;
     margin: 30px 0;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--border-color);
-    
 }
 
 header h1 {
@@ -54,15 +63,12 @@ header h1 {
 /* ===== Navigation ===== */
 nav {
     margin-top: 15px;
-    padding: 20px 10px; /* Légèrement réduit pour que la barre ne soit pas trop haute */
-    
-    /* ---- AJOUT DE L'IMAGE DE FOND ---- */
+    padding: 20px 10px;
     background-color: #8A9A5B;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
-    border-radius: 8px; /* Arrondit les coins de la barre de navigation */
+    border-radius: 8px;
 }
 
 nav ul {
@@ -78,8 +84,7 @@ nav a {
     color: white;
     font-family: Times;
     font-weight: 500;
-    font-size:1.12em;
-    letter-spacing:.4px;
+    font-size: 1.05em;
     padding: 5px 10px;
     transition: color 0.2s, background-color 0.2s;
     border-radius: 3px;
@@ -95,41 +100,26 @@ main {
     padding: 20px 0;
 }
 
-.intro {
+.intro,
+.contact {
     text-align: justify;
     color: white;
-    margin-bottom: 40px;
+    margin: 0 auto 40px;
     padding: 25px;
-
-    width: 100%;
-    max-width: 1100px;
-
     background-image: url('../fond_tableau.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: var(--shadow);
+    /* width en % avec une largeur MAX (pas min) pour rester lisible sur grand écran
+       sans jamais forcer un débordement sur petit écran */
+    width: 100%;
+    max-width: 900px;
 }
 
 .contact {
     text-align: center;
-    color: white;
-    margin-bottom: 40px;
-    padding: 20px;
-    background-image: url('../fond_tableau.png');
-    border-radius: 5px;
-    padding: 25px;
-    width:100%;
-    max-width:1100px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    background-size: cover; /* 👈 Remplit tout l'espace disponible */
-    background-position: center; /* Centre l'image pour éviter les décalages */
-    background-repeat: no-repeat; /* Évite que l'image ne se répète */
-
-    border-radius: 5px;
-    box-shadow: var(--shadow);
 }
 
 .intro h2 {
@@ -149,21 +139,20 @@ main {
 
 .section-card {
     background-image: url('../logo_carte.png');
-    border-radius: 18px;
+    border-radius: 5px;
     padding: 25px;
     width: 45%;
-    min-width: 300px;
-    transition: transform 0.2s, box-shadow:0 10px 25px rgba(0,0,0,.10);
-    background-size: cover; /* 👈 Remplit tout l'espace disponible */
-    background-position: center; /* Centre l'image pour éviter les décalages */
-    background-repeat: no-repeat; /* Évite que l'image ne se répète */
+    min-width: 280px;
+    max-width: 100%;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
-
-
 
 .section-card:hover {
     transform: translateY(-5px);
-    box-shadow:0 10px 25px rgba(0,0,0,.10);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .section-card h3 {
@@ -181,36 +170,23 @@ main {
     text-decoration: underline;
 }
 
-.section-card.college {
-    background-image: url('../logo_carte.png');
-    background-size: cover; /* 👈 Remplit tout l'espace disponible */
-    background-position: center; /* Centre l'image pour éviter les décalages */
-    background-repeat: no-repeat; /* Évite que l'image ne se répète */
-
-
-}
+.section-card.college,
 .section-card.lycee {
     background-image: url('../logo_carte.png');
-    background-size: cover; /* 👈 Remplit tout l'espace disponible */
-    background-position: center; /* Centre l'image pour éviter les décalages */
-    background-repeat: no-repeat; /* Évite que l'image ne se répète */
-
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.card::before{
-
-    content:"";
-
-    width:80px;
-
-    height:15px;
-
-    background:#d9d6aa;
-
+.card::before {
+    content: "";
+    width: 80px;
+    height: 15px;
+    background: #d9d6aa;
 }
 
 /* ===== Listes de cours/ressources ===== */
-.cours-list, .ressources {
+.cours-list {
     display: flex;
     justify-content: center;
     gap: 30px;
@@ -218,19 +194,21 @@ main {
     margin-top: 20px;
 }
 
-.niveau, .ressource {
+.niveau,
+.ressource {
     background: #D3CDC3;
     border: 1px solid var(--border-color);
     border-radius: 5px;
     padding: 20px;
     width: 45%;
-    min-width: 300px;
+    min-width: 280px;
+    max-width: 100%;
     box-shadow: var(--shadow);
     margin-bottom: 20px;
 }
 
-.niveau h3, .ressource h3 {
-
+.niveau h3,
+.ressource h3 {
     margin-bottom: 15px;
     font-size: 1.3em;
     color: var(--main-color);
@@ -238,29 +216,34 @@ main {
     padding-bottom: 10px;
 }
 
-.niveau ul, .ressource ul {
+.niveau ul,
+.ressource ul {
     list-style: none;
     padding-left: 5px;
 }
 
-.niveau li, .ressource li {
+.niveau li,
+.ressource li {
     margin-bottom: 10px;
     padding: 8px;
     border-radius: 3px;
     transition: background-color 0.2s;
 }
 
-.niveau li:hover, .ressource li:hover {
+.niveau li:hover,
+.ressource li:hover {
     background-color: rgba(52, 152, 219, 0.1);
 }
 
-.niveau a, .ressource a {
+.niveau a,
+.ressource a {
     color: var(--text-color);
     text-decoration: none;
     font-family: var(--font-secondary);
 }
 
-.niveau a:hover, .ressource a:hover {
+.niveau a:hover,
+.ressource a:hover {
     text-decoration: underline;
 }
 
@@ -275,84 +258,107 @@ footer {
     font-family: var(--font-secondary);
 }
 
-/* ===== Responsive ===== */
-@media (max-width:768px){
-
-body{
-
-    padding:10px;
-
+/* ===== Chapitres ===== */
+.chapitres {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
 }
 
-.intro,
-.contact{
-
-    width:100%;
-    max-width:none;
-
+.chapitres h2 {
+    margin-top: 35px;
 }
 
-.section-card,
-.niveau,
-.ressource,
-
-.chapitre-card{
-    width:100%;
-    min-width:0;
-
+.chapitre-card {
+    background-color: #D3CDC3;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
 .chapitre-card h3 {
-    font-size: 1.6em;       /* 👈 Augmente la taille du texte (valeur par défaut ~1.17em) */
-    font-weight: 600;       /* Rend l'écriture un peu plus épaisse et lisible */
-    color: #2c3e50;         /* Applique votre couleur bleu foncé principale */
-    margin-bottom: 15px;    /* Ajoute de l'espace sous le titre du chapitre */
+    margin-top: 0;
 }
 
-.ressources{
-
-    grid-template-columns:1fr;
-
+.liens-pdf {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-.page-6e{
-
-    flex-direction:column;
-
+.liens-pdf a {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: black;
+    background-color: #eeeeee;
 }
 
-.image-6e{
-
-    display:none;
-
+.liens-pdf a:hover {
+    opacity: 0.7;
 }
 
-nav ul{
-
-    flex-direction:column;
-
-    gap:8px;
-
+/* ===== Détails / résumé ===== */
+details {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 20px 0;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
-header h1{
-
-    font-size:1.8em;
-
+/* Menus déroulants de chapitres (page 6e) : fond transparent */
+.menu-chapitres details {
+    background: transparent;
+    box-shadow: none; /* l'ombre portée n'a plus de sens sans fond, retirez cette ligne si vous voulez la garder */
 }
 
-img{
-
-    max-width:100%;
-
-    height:auto;
-
+summary {
+    cursor: pointer;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 10px;
 }
 
+summary:hover {
+    color: #0066cc;
+}
+
+details[open] summary {
+    margin-bottom: 15px;
+}
+
+/* ===== Page 6e ===== */
+.page-6e {
+    display: flex;
+    gap: 40px;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: wrap; /* permet à l'image de passer en dessous sur mobile */
+}
+
+.menu-chapitres {
+    flex: 2;
+    min-width: 250px;
+}
+
+.image-6e {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.image-6e img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 15px;
 }
 
 /* ===== Grille des leçons d'agrégation ===== */
-
 .ressources {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -361,32 +367,21 @@ img{
 }
 
 .ressources .chapitre-card {
-    background-color: transparent; /* 👈 Supprime toute couleur de fond */
-    background-image: none;        /* 👈 Supprime l'image globale par défaut */
-    border: none;                  /* 👈 Enlève les éventuelles bordures */
-    box-shadow: none;              /* 👈 Supprime l'ombre pour éliminer l'effet de relief */
-    
-    padding: 15px;                 /* Garde un peu d'espace autour du texte */
-    width:100%;
-    min-width:0;
-    transition: transform 0.2s;    /* Conserve un léger effet de mouvement au survol */
-
-    min-height: 170px;
-
+    background-color: transparent;
+    background-image: url('../fond_carte_agreg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    box-shadow: none;
     padding: 20px;
-
+    width: 100%;
+    min-height: 170px;
     display: flex;
     justify-content: center;
     align-items: center;
-
     text-align: center;
-
     transition: transform 0.2s;
-    background-image: url('../fond_carte_agreg.png');
-    background-size: cover; /* 👈 Remplit tout l'espace disponible */
-    background-position: center; /* Centre l'image pour éviter les décalages */
-    background-repeat: no-repeat; /* Évite que l'image ne se répète */
-
 }
 
 .ressources .chapitre-card:hover {
@@ -398,11 +393,9 @@ img{
     color: var(--text-color);
     font-weight: bold;
     width: 90%;
-
 }
 
 /* ===== Menus déroulants ===== */
-
 nav ul li {
     position: relative;
 }
@@ -412,15 +405,11 @@ nav ul li {
     position: absolute;
     top: 100%;
     left: 0;
-
     list-style: none;
     background: white;
-
     min-width: 180px;
-
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     padding: 0;
     z-index: 1000;
 }
@@ -441,24 +430,95 @@ nav ul li {
     color: white;
 }
 
-.dropdown:hover .dropdown-menu {
+/* Au survol (PC) ET au clic/tactile via la classe .active (à ajouter en JS) */
+.dropdown:hover .dropdown-menu,
+.dropdown.active .dropdown-menu {
     display: block;
 }
 
-.liens-pdf {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-top: 15px;
+/* ===== Responsive : tablette ===== */
+@media (max-width: 900px) {
+    .intro,
+    .contact {
+        max-width: 100%;
+    }
 }
 
-.liens-pdf a {
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 8px;
-    background-color: #eeeeee;
-    color: #2c3e50;
-    font-size: 1.05em;
-    font-weight: 500;
+/* ===== Responsive : mobile ===== */
+@media (max-width: 768px) {
+    .sections,
+    .cours-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* La grille de ressources passe à 1 colonne sur mobile */
+    .ressources {
+        grid-template-columns: 1fr;
+    }
+
+    .section-card,
+    .niveau,
+    .ressource {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .intro,
+    .contact {
+        width: 100%;
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .page-6e {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .image-6e {
+        order: -1; /* image au-dessus du menu sur mobile, optionnel */
+    }
+
+    /* Sur tactile, le menu déroulant reste fermé par défaut au survol
+       (qui n'existe pas) : on le rend accessible en position statique
+       si aucun JS n'est ajouté pour gérer le clic */
+    .dropdown-menu {
+        position: static;
+        display: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0 12px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .section-card,
+    .niveau,
+    .ressource,
+    .intro,
+    .contact,
+    .chapitre-card {
+        padding: 15px;
+    }
 }
