@@ -113,9 +113,19 @@ main {
 
 .contact {
     text-align: center;
+    color: white;
     margin-bottom: 40px;
     padding: 20px;
-    background: white;
+    background-image: url('../fond_tableau.png');
+    border-radius: 5px;
+    padding: 25px;
+    width: 45%;
+    min-width: 1050px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-size: cover; /* 👈 Remplit tout l'espace disponible */
+    background-position: center; /* Centre l'image pour éviter les décalages */
+    background-repeat: no-repeat; /* Évite que l'image ne se répète */
+
     border-radius: 5px;
     box-shadow: var(--shadow);
 }
@@ -142,7 +152,7 @@ main {
     width: 45%;
     min-width: 300px;
     transition: transform 0.2s, box-shadow 0.2s;
-background-size: cover; /* 👈 Remplit tout l'espace disponible */
+    background-size: cover; /* 👈 Remplit tout l'espace disponible */
     background-position: center; /* Centre l'image pour éviter les décalages */
     background-repeat: no-repeat; /* Évite que l'image ne se répète */
 }
