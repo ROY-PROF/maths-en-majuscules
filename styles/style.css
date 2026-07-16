@@ -296,22 +296,17 @@ body{
 .niveau,
 .ressource,
 
-.chapitre-card {
+.chapitre-card{
+    width:100%;
+    min-width:0;
 
-    background: #D3CDC3;
+}
 
-    border: 1px solid #bdb7ad;
-
-    border-radius: 15px;
-
-    padding: 20px;
-
-    margin: 20px 0;
-
-    box-shadow: 0 5px 12px rgba(0,0,0,0.15);
-
-    width: 100%;
-
+.chapitre-card h3 {
+    font-size: 1.6em;       /* 👈 Augmente la taille du texte (valeur par défaut ~1.17em) */
+    font-weight: 600;       /* Rend l'écriture un peu plus épaisse et lisible */
+    color: #2c3e50;         /* Applique votre couleur bleu foncé principale */
+    margin-bottom: 15px;    /* Ajoute de l'espace sous le titre du chapitre */
 }
 
 .ressources{
@@ -448,4 +443,22 @@ nav ul li {
 
 .dropdown:hover .dropdown-menu {
     display: block;
+}
+
+.liens-pdf {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.liens-pdf a {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: #eeeeee;
+    color: #2c3e50;
+    font-size: 1.05em;
+    font-weight: 500;
 }
