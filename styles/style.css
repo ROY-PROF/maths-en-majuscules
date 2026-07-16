@@ -94,9 +94,19 @@ main {
 
 .intro {
     text-align: justify;
+    color: white;
     margin-bottom: 40px;
     padding: 20px;
-    background: white;
+    background-image: url('../fond_tableau.png');
+    border-radius: 5px;
+    padding: 25px;
+    width: 45%;
+    min-width: 1050px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-size: cover; /* 👈 Remplit tout l'espace disponible */
+    background-position: center; /* Centre l'image pour éviter les décalages */
+    background-repeat: no-repeat; /* Évite que l'image ne se répète */
+
     border-radius: 5px;
     box-shadow: var(--shadow);
 }
@@ -113,7 +123,7 @@ main {
 .intro h2 {
     font-size: 1.8em;
     margin-bottom: 15px;
-    color: var(--main-color);
+    color: white;
 }
 
 /* ===== Cartes des sections (accueil) ===== */
@@ -160,20 +170,19 @@ background-size: cover; /* 👈 Remplit tout l'espace disponible */
 }
 
 .section-card.college {
-    background-image:
-        linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
-        url("../logo_college.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-image: url('../logo_carte.png');
+    background-size: cover; /* 👈 Remplit tout l'espace disponible */
+    background-position: center; /* Centre l'image pour éviter les décalages */
+    background-repeat: no-repeat; /* Évite que l'image ne se répète */
+
+
 }
 .section-card.lycee {
-    background-image:
-        linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
-        url("../logo_lycee.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-image: url('../logo_carte.png');
+    background-size: cover; /* 👈 Remplit tout l'espace disponible */
+    background-position: center; /* Centre l'image pour éviter les décalages */
+    background-repeat: no-repeat; /* Évite que l'image ne se répète */
+
 }
 
 .card::before{
@@ -198,7 +207,7 @@ background-size: cover; /* 👈 Remplit tout l'espace disponible */
 }
 
 .niveau, .ressource {
-    background: white;
+    background: #D3CDC3;
     border: 1px solid var(--border-color);
     border-radius: 5px;
     padding: 20px;
@@ -209,6 +218,7 @@ background-size: cover; /* 👈 Remplit tout l'espace disponible */
 }
 
 .niveau h3, .ressource h3 {
+
     margin-bottom: 15px;
     font-size: 1.3em;
     color: var(--main-color);
@@ -285,7 +295,7 @@ footer {
 
 
 .chapitre-card {
-    background-color: white;
+    background-color: #D3CDC3;
     padding: 20px;
     margin: 15px 0;
     border-radius: 12px;
@@ -309,6 +319,7 @@ footer {
     text-decoration: none;
     padding: 8px 12px;
     border-radius: 8px;
+    color: black;
     background-color: #eeeeee;
 }
 
@@ -379,9 +390,15 @@ details[open] summary {
 }
 
 .ressources .chapitre-card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
+    background-color: transparent; /* 👈 Supprime toute couleur de fond */
+    background-image: none;        /* 👈 Supprime l'image globale par défaut */
+    border: none;                  /* 👈 Enlève les éventuelles bordures */
+    box-shadow: none;              /* 👈 Supprime l'ombre pour éliminer l'effet de relief */
+    
+    padding: 15px;                 /* Garde un peu d'espace autour du texte */
+    width: 45%;
+    min-width: 300px;
+    transition: transform 0.2s;    /* Conserve un léger effet de mouvement au survol */
 
     min-height: 170px;
 
@@ -394,6 +411,11 @@ details[open] summary {
     text-align: center;
 
     transition: transform 0.2s;
+    background-image: url('../fond_carte_agreg.png');
+    background-size: cover; /* 👈 Remplit tout l'espace disponible */
+    background-position: center; /* Centre l'image pour éviter les décalages */
+    background-repeat: no-repeat; /* Évite que l'image ne se répète */
+
 }
 
 .ressources .chapitre-card:hover {
@@ -404,6 +426,8 @@ details[open] summary {
     text-decoration: none;
     color: var(--text-color);
     font-weight: bold;
+    width: 90%;
+
 }
 
 /* ===== Menus déroulants ===== */
